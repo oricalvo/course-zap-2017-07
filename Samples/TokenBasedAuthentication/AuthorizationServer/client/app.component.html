@@ -1,0 +1,11 @@
+﻿<h1>App</h1>
+
+<ul>
+    <li ng-repeat="contact in $ctrl.contacts">
+        <span>{{contact.Name}}</span>
+    </li>
+</ul>
+
+<button ng-click="$ctrl.login()">Login</button>
+<button ng-click="$ctrl.logout()">Logout</button>
+<button ng-click="$ctrl.getContacts()">Get Contacts</button>

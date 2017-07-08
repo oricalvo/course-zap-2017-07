@@ -1,0 +1,6 @@
+.vs
+bin
+.idea
+node_modules
+obj
+packages
