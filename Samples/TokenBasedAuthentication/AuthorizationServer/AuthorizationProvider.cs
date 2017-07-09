@@ -1,6 +1,8 @@
-﻿using Microsoft.Owin.Security.OAuth;
+﻿using Microsoft.Owin.Security.Infrastructure;
+using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System;
 
 public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
 {
@@ -25,12 +27,22 @@ public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvide
 
     public override Task ValidateAuthorizeRequest(OAuthValidateAuthorizeRequestContext context)
     {
-        return base.ValidateAuthorizeRequest(context);
+        context.Validated();
+
+        return Task.FromResult(0);
+        //return base.ValidateAuthorizeRequest(context);
     }
 
     public override Task ValidateClientRedirectUri(OAuthValidateClientRedirectUriContext context)
     {
-        return base.ValidateClientRedirectUri(context);
+        if (context.ClientId == "client1")
+        {
+            context.Validated("http://localhost:62613/oauthcallback");
+        }
+
+        return Task.FromResult(0);
+
+        //return base.ValidateClientRedirectUri(context);
     }
 
     public override Task ValidateTokenRequest(OAuthValidateTokenRequestContext context)
@@ -40,7 +52,10 @@ public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvide
 
     public override Task AuthorizeEndpoint(OAuthAuthorizeEndpointContext context)
     {
-        return base.AuthorizeEndpoint(context);
+        context.RequestCompleted();
+
+        return Task.FromResult(0);
+        //return base.AuthorizeEndpoint(context);
     }
 
     public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
@@ -57,5 +72,28 @@ public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvide
         identity.AddClaim(new Claim("role", "user"));
 
         context.Validated(identity);
+    }
+}
+
+public class SimpleAuthorizationCodeProvider : IAuthenticationTokenProvider
+{
+    public void Create(AuthenticationTokenCreateContext context)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateAsync(AuthenticationTokenCreateContext context)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Receive(AuthenticationTokenReceiveContext context)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task ReceiveAsync(AuthenticationTokenReceiveContext context)
+    {
+        throw new NotImplementedException();
     }
 }

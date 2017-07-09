@@ -3,6 +3,9 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
 using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 
 [assembly: OwinStartup(typeof(AuthorizationServer.Startup))]
 namespace AuthorizationServer
@@ -18,6 +21,11 @@ namespace AuthorizationServer
 
             //app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
+
+            //AreaRegistration.RegisterAllAreas();
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         public void ConfigureOAuth(IAppBuilder app)
@@ -25,9 +33,11 @@ namespace AuthorizationServer
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
+                AuthorizeEndpointPath = new PathString("/authorize"),
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider()
+                Provider = new SimpleAuthorizationServerProvider(),
+                AuthorizationCodeProvider = new SimpleAuthorizationCodeProvider()
             };
 
             // Token Generation
