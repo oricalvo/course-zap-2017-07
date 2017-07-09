@@ -18,7 +18,7 @@ container.Register(Component.For<IMyService>().ImplementedBy<MyService1>());
 container.Register(Component.For<IMyService>().ImplementedBy<MyService2>().Named("Service2").IsDefault());
 container.Register(Component.For<IMyService>().ImplementedBy<MyService3>().IsDefault());
 
-            Console.WriteLine(container.Resolve<IMyService>("Service2").GetType().Name);
+Console.WriteLine(container.Resolve<IMyService>("Service2").GetType().Name);
         }
     }
 
