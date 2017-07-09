@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieBasedAuthentication", "CookieBasedAuthentication\CookieBasedAuthentication.csproj", "{426060AB-1DD5-42DD-8D39-F27D0372A501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaliciousWebSite", "MaliciousWebSite\MaliciousWebSite.csproj", "{BFAC3B3A-7F4A-4C4B-A358-9C1FF4346C37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{426060AB-1DD5-42DD-8D39-F27D0372A501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{426060AB-1DD5-42DD-8D39-F27D0372A501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{426060AB-1DD5-42DD-8D39-F27D0372A501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{426060AB-1DD5-42DD-8D39-F27D0372A501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFAC3B3A-7F4A-4C4B-A358-9C1FF4346C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFAC3B3A-7F4A-4C4B-A358-9C1FF4346C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFAC3B3A-7F4A-4C4B-A358-9C1FF4346C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFAC3B3A-7F4A-4C4B-A358-9C1FF4346C37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

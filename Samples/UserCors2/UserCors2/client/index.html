@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:64345/api/contact",
+            success: function (res) {
+                console.log("SUCCESS", res);
+            },
+            error: function (err) {
+                console.log("ERROR", err);
+            }
+        });
+    </script>
+</body>
+</html>
