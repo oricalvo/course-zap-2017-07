@@ -16,6 +16,16 @@
 
         @Html.ActionLink("Authorize", "Authorize")
         @Html.ActionLink("SecuredAction", "SecuredAction")
+
+        <script>
+            $.ajax({
+                type: "POST",
+                url: "/api/login",
+                data: {},
+                success: function (token)
+                { }
+            });
+        </script>
     </div>
 </body>
 </html>

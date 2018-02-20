@@ -20,7 +20,7 @@ namespace DependencyInjectionInsideAspNetMvc
             instance = new WindsorContainer();
 
             instance.Register(Component.For<IAuthService>().ImplementedBy<AuthService>());
-            //instance.Register(Component.For<HomeController>().ImplementedBy<HomeController>());
+            instance.Register(Component.For<HomeController>().ImplementedBy<HomeController>());
 
             instance.Install(FromAssembly.This());
 

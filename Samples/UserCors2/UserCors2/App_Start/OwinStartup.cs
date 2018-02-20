@@ -10,7 +10,7 @@ namespace UserCors2.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseCors(CorsOptions.AllowAll);
+            //app.UseCors(CorsOptions.AllowAll);
         }
     }
 }

@@ -14,6 +14,11 @@ namespace CookieBasedAuthentication.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
+            app.Use((context, next) =>
+            {
+                return next();
+            });
+
             var options = new CookieAuthenticationOptions()
             {
                 CookieName = "XXX",
